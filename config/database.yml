@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+development:
+  <<: *default
+  database: judy_development
+test:
+  <<: *default
+  database: judy_test
+production:
+  <<: *default
+  database: judy_production
+  username: judy
+  password: <%= ENV['JUDY_DATABASE_PASSWORD'] %>
